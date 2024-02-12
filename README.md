@@ -18,7 +18,6 @@ You are encouraged to incorporate file handling in this project to store all the
 
 Coding part:
 
-
    #include<iostream>
 
    #include<conio.h>
@@ -28,128 +27,249 @@ Coding part:
    #include<fstream>
 
    #include<windows.h>
+
    using namespace std;
+
    class bus{
+
 	private:
+
 		string b_no,b_name,d_name;
+
 		int b_seats;
+
 	public:
-	   void menu();	
+
+	   void menu();
+	
 	   void new_bus();
-	   void view_bus();
+
+	   void view_bus
+
 	   void single_view_bus();
+
 	   void all_view_bus();
+
 	   void update_bus();
-	   void del_bus(); 
+
+	   void del_bus();
+ 
 	   void route_bus();
+
 	   void details_bus();
+
 	   void booking();
+
 	   void renew();
+
 	   void search_booking();
+
 	   void update_record();
+
 	   void del_record();
+
 	   void show();
+
 };
+
     void bus::menu(){
+
     	system("cls");
+
 		int choice;
+
     	p:
 		cout<<"\n\t\t____________BUS MANAGMENT SYSTEM_____________";
+
 		cout<<"\n\n  ****MAIN MENU****";
+
 		cout<<"\n\n 1.ADD BUS RECORD";
+
 		cout<<"\n 2.VIEW BUSES DETAIL";
+
 		cout<<"\n 3.UPDATE BUS DETAIL";
+
 		cout<<"\n 4.DELETE BUS DETAIL";
+
 		cout<<"\n 5.ROUTS OF BUSES";
+
 		cout<<"\n 6.SEAT DETAIL";
+
 		cout<<"\n 7.BOOKING RECORD";
+
 		cout<<"\n 8.SEATS RENEW";
+
 		cout<<"\n 9.SEARCH BOOKING RECORD";
+
 		cout<<"\n 10.UPDATE BOOKING RECORD";
+
 		cout<<"\n 11.DELETE BOOKING RECORD";
+
 		cout<<"\n 12.SHOW ALL BOOKING RECORD";
+
 		cout<<"\n 13.EXIT";
+
 		cout<<"\n\n ENTER YOUR CHOICE: ";
+
 		cin>>choice;
+
 		switch(choice){
+
 			case 1:
+
 			    new_bus();
+
 				break;
+
 			case 2:
+
 				view_bus();
+
 				break;
+
 			case 3:
+
 				update_bus();
+
 				break;
+
 			case 4:
+
 				del_bus();
+
 				break;
+
 			case 5:
+
 				route_bus();
+
 				break;
+
 		    case 6:
+
 		    	details_bus();
+
 				break;
+
 			case 7:
+
 				booking();
+
 				break;
+
 			case 8:
+
 				renew();
+
 				break;
+
 			case 9:
+
 				search_booking();
+
 				break;
+
 			case 10:
+
 				update_record();
+
 				break;
+
 			case 11:
+
 				del_record();
+
 				break;
+
 			case 12:
+
 				show();
+
 				break;
+
 			case 13:
+
 				exit(0);
+
 			default:
-			   cout<<"\n\n Invalid Choice.... Please Try again.....";				
+
+			   cout<<"\n\n Invalid Choice.... Please Try again.....";
+				
 		}
+
 		getch();
-		goto p;	
+
+		goto p;
+	
 	}
+
 	void bus::new_bus(){
+
 		p:
+
 		system("cls");
+
 		fstream file;
+
 		int found=0;
+
 		string t_no,tb_name,td_name;
+
 		int t_seats;
+
 		cout<<"\n\t\t____________BUS MANAGMENT SYSTEM____________";
+
 		cout<<"\n\n Bus No: ";
+
 		cin>>b_no;
+
 		cout<<"\n\n Bus Name: ";
+
 		cin>>b_name;
+
 		cout<<"\n\n Total seats: ";
+
 		cin>>b_seats;
+
 		cout<<"\n\n Driver Name: ";
+
 		cin>>d_name;
+
 		file.open("bus.txt",ios::in);
+
 		if(!file){
+
 			file.open("bus.txt",ios::app|ios::out);
+
 			file<<b_no<<" "<<b_name<<" "<<b_seats<<" "<<d_name<<"\n";
+
 			file.close();
+
 		}
+
 		else{
+
 		file>>t_no>>tb_name>>t_seats>>td_name;
+
 		while(!file.eof()){
+
 			if(b_no== t_no){
+
 				found++;
+
 			}
 			file>>t_no>>tb_name>>t_seats>>td_name;
+
 		}
+
 		file.close();
+
 		if(found==0){
+
 			file.open("bus.txt",ios::app|ios::out);
+
 			file<<b_no<<" "<<b_name<<" "<<b_seats<<" "<<d_name<<"\n";
+
 			file.close();
 		}
 		else{
