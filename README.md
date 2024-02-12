@@ -17,10 +17,16 @@ This feature simply shows the buses available for reservation, and the informati
 You are encouraged to incorporate file handling in this project to store all the bus details, and make the project more effective and complete overall. This is a very simple project,published here just to show the implementation processes and techniques of class and object of the C++ language and some concept of oops.
 
 Coding part:
+
+
    #include<iostream>
+
    #include<conio.h>
+
    #include<stdio.h>
+
    #include<fstream>
+
    #include<windows.h>
    using namespace std;
    class bus{
