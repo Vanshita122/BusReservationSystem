@@ -890,33 +890,62 @@ Coding part:
 		}
 			
 main(){
+
 	bus b;
+
 	char ch;
+
 	p:
+
 	system("cls");
+
 	string email,pass;
+
 	cout<<"\n\n\t\t\t****Security are Required****";
+
 	cout<<"\n\n Email: ";
+
 	cin>>email;
+
 	cout<<"\n\n Password: ";
+
 	for(int i=1;i<=6;i++){
+
 	   ch=getch();
+
 	   pass+=ch;
-	   cout<<"*";	
+
+	   cout<<"*";
+	
 	}
+
 	if(email=="vanshitaagarwal2401@gmail.com" && pass=="vanshi"){
+
 		cout<<"\n\n\n\t\t\tLoading";
+
 		for(int i=1;i<=5;i++){
+
 			Sleep(500);
+
 			cout<<".";
+
 			b.menu();
-		}	
+
+		}
+	
 	}
+
 	else{
+
 		cout<<"\n\n\t\tYour Email & password is wrong...";
+
 		getch();
+
 		goto p;
-	}
+
+	
+
+
 }
 
 
